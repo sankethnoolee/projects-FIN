@@ -1,0 +1,19 @@
+{
+	"driverClassName": "oracle.jdbc.driver.OracleDriver",
+	"solutions": [
+		{
+			"solution_name": "Biz$core_Banking_REGREP",
+			"solution_id": 1000,
+			"solution_url": "https://BLRTESTAPP044.fintellix.com/mdc/j_acegi_security_check",
+			"dbType": "oracle",
+			"jdbc_url":"jdbc:oracle:thin:@blrdevorcldb010.fintellix.com:1521:ORCLCDB",
+			"database_username": "ADFTEST_314_DATAHUB",
+			"database_password": "Welcome1",
+			"initialSize": 10,
+			"maxTotal": 25,
+			"maxIdle": 25,
+			"minIdle": 10,
+			"maxWaitMillis": 120000
+		}
+	]
+}

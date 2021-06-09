@@ -1,0 +1,20 @@
+#footerContent{
+	background: #EDEDED;
+    border: 1px solid #D1D1D1;
+    color: black;
+    width: auto;
+    height: 20px;
+    padding: 5px 6px 0 6px;
+}
+
+#footer{
+	width: 100%;
+    font: 11px Arial;
+    color: #F7F7F7;
+    border-top: 0;
+    height: 24px;
+    margin: 5px 0px;
+    
+    color: #EDEDED;
+    background: none;
+}

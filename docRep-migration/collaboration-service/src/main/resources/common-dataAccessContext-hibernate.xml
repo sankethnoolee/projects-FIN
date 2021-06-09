@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    <bean
+        class="com.fintellix.platformcore.search.dao.SolutionSpecificSessionFinder" id="solutionSpecificSessionFinder">
+        <property name="sessionFactoryMap">
+            <map>
+                <!-- 
+                  Commenting out since we don't have support in MS SQL for now.
+                  <entry key="Biz$core_Banking_REGREP" value-ref="TRAQSolutionSessionFactory"/>
+                  <entry key="BIZSCORE_ADF_QA_1_9" value-ref="DRISKSolutionSessionFactory"/>
+                -->
+                <entry key="DATAHUB" value-ref="DATAHUBSolutionSessionFactory"/>
+
+            </map>
+        </property>
+        <property name="sessionFactoryTypeMap">
+            <map>
+                <entry key="DATAHUB" value="DATAHUB"/>
+            </map>
+        </property>
+    </bean>
+    <!-- db switch -->
+    <bean class="com.fintellix.platformcore.utils.DBSwitch" id="dbType">
+        <property name="appDbType" value="mssql"/>
+        <property name="martDbType" value="mssql"/>
+    </bean>
+    <bean
+        class="com.fintellix.platformcore.common.hibernate.VyasaHibernateDaoSupport" id="vyasaHibernateDaoSupport">
+        <property name="solutionSpecificSessionFinder" ref="solutionSpecificSessionFinder"/>
+        <property name="dbType" ref="dbType"/>
+    </bean>
+    <!-- <bean id="taskExecutor"
+    class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	    <property name="corePoolSize" value="${corePoolSize}" />
+	    <property name="maxPoolSize" value="${maxPoolSize}" />
+	    <property name="waitForTasksToCompleteOnShutdown" value="true" />
+	</bean>-->
+</beans>

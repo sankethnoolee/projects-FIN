@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fintellix.dataLoadDashboard</groupId>
+	<artifactId>dataloadDashboard</artifactId>
+	<version>0.1.0</version>
+	<packaging>jar</packaging>
+	<name>DataLoad Dashbaord</name>
+	<description>DataLoad Dashbaord Service</description>
+	<organization>
+		<name>Fintellix Solutions</name>
+		<url>http://fintellix.com</url>
+	</organization>
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<fintellix.conf.path>..</fintellix.conf.path>
+				<jsw.installer.target.id>${installer-target}</jsw.installer.target.id>
+				<deployment.module.path>${project.build.directory}/Services</deployment.module.path>
+				<instance.id>local</instance.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>package-build</id>
+			<properties>
+				<fintellix.conf.path>${fintellix_conf_path}</fintellix.conf.path>
+				<jsw.installer.target.id>${installer_target}</jsw.installer.target.id>
+				<deployment.module.path>${build.root.path}/Services</deployment.module.path>
+				<instance.id>${instance_id}</instance.id>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>	
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.4.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${deployment.module.path}/all-platforms</directory>
+									<includes>
+										<include>dataload-dashboard</include>
+										<include>dataload-dashboard/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<app.name>dataload-dashboard</app.name>
+	</properties>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+	</parent>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>http://mavenrepo:8081/artifactory/libs-release</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>libs-snapshot</name>
+			<url>http://mavenrepo:8081/artifactory/libs-snapshot</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>22.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- tag::web[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- end::web[] -->
+		<!-- tag::security[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jdt.core.compiler</groupId>
+			<artifactId>ecj</artifactId>
+			<version>4.6.1</version>
+		</dependency>
+		<!-- end::security[] -->
+
+		<dependency>
+			<groupId>sqljdbc42</groupId>
+			<artifactId>sqljdbc42</artifactId>
+			<version>4.2</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../lib/sqljdbc42.jar</systemPath>
+		</dependency>
+
+                <dependency>
+                    <groupId>ojdbc8</groupId>
+                    <artifactId>ojdbc8</artifactId>
+                    <version>19.3</version>
+                </dependency>
+
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.55</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.10.2</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>4.2.0</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jfilter-0.6.0</groupId>
+			<artifactId>jfilter-0.6.0</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${basedir}/../lib/jfilter-0.6.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>aspose-cells-8.7.0</groupId>
+			<artifactId>aspose-cells-8.7.0</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.0</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+
+		<dependency>
+
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.0</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.0</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.8.2</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+
+		<!-- Imports related to Graph DB Start -->
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-bolt-driver</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.neo4j.app</groupId>
+			<artifactId>neo4j-browser</artifactId>
+			<version>2.3.11</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-neo4j</artifactId>
+			<version>1.5.6.RELEASE</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.5</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-core</artifactId>
+			<version>2.6.6.RELEASE</version><!--$NO-MVN-MAN-VER$ -->
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-bolt</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-kernel</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.neo4j.driver</groupId>
+			<artifactId>neo4j-java-driver</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+
+		<!-- Imports related to Graph DB End -->
+
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				
+				<directory>src/main/resources/</directory>
+				<excludes>
+					<exclude>**/config/*</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>lic</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/dataload-dashboard/jsw/${app.name}/lib</outputDirectory>
+							<includeScope>system</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-jsw-scripts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-daemons</goal>
+						</goals>
+						<configuration>
+							<configurationDirectory>conf</configurationDirectory>
+							<copyConfigurationDirectory>true</copyConfigurationDirectory>
+							<configurationSourceDirectory>src/main/resources/config</configurationSourceDirectory>
+							<useWildcardClassPath>true</useWildcardClassPath>
+							<filterConfigurationDirectory>true</filterConfigurationDirectory>
+							<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+							<!--<assembleDirectory>${assemble.directory}</assembleDirectory> -->
+							<repositoryName>lib</repositoryName>
+							<repositoryLayout>flat</repositoryLayout>
+							<target>${project.build.directory}/dataload-dashboard</target>
+							<!--<preWrapperConf>src/main/resources/pre-wrapper.conf</preWrapperConf> -->
+							<daemons>
+								<daemon>
+									<id>dataload-dashboard</id>
+									<wrapperMainClass>org.tanukisoftware.wrapper.WrapperSimpleApp</wrapperMainClass>
+									<mainClass>com.fintellix.dld.application.Application</mainClass>
+									<platforms>
+										<platform>jsw</platform>
+									</platforms>
+									<jvmSettings>
+										<initialMemorySize>256</initialMemorySize>
+										<maxMemorySize>2048</maxMemorySize>
+										<maxStackSize>1024K</maxStackSize>
+										<systemProperties>
+											<systemProperty>app.name=${app.name}</systemProperty>
+											<systemProperty>sun.jnu.encoding=UTF-8</systemProperty>
+											<systemProperty>file.encoding=UTF-8</systemProperty>
+											<systemProperty>javax.xml.accessExternalDTD=all</systemProperty>
+											<systemProperty>-Djava.io.tmpdir=/tmp</systemProperty>
+										</systemProperties>
+										<extraArguments>
+											<extraArgument>-XX:+UseConcMarkSweepGC</extraArgument>
+											<extraArgument>-XX:+CMSClassUnloadingEnabled</extraArgument>
+											<extraArgument>-server</extraArgument>
+										</extraArguments>
+									</jvmSettings>
+									<generatorConfigurations>
+										<generatorConfiguration>
+											<generator>jsw</generator>
+											<includes>
+												<include>linux-x86-64</include>
+												<include>windows-x86-64</include>
+												<include>linux-x86-32</include>
+												<include>windows-x86-32</include>
+											</includes>
+											<configuration>
+												<property>
+													<name>configuration.directory.in.classpath.first</name>
+													<value>conf</value>
+												</property>
+												<property>
+													<name>wrapper.logfile</name>
+													<value>logs/dataload-dashboard-wrapper-YYYYMMDD.log</value>
+												</property>
+												<property>
+													<name>wrapper.logfile.maxsize</name>
+													<value>5m</value>
+												</property>
+												<property>
+													<name>run.as.user.envvar</name>
+													<value>${serviceUser}</value>
+												</property>
+												<property>
+													<name>wrapper.on_exit.default</name>
+													<value>RESTART</value>
+												</property>
+
+												<property>
+													<name>wrapper.logfile.rollmode</name>
+													<value>DATE</value>
+												</property>
+												<property>
+													<name>wrapper.java.command</name>
+													<value>%JAVA_HOME%/bin/java</value>
+												</property>
+												<property>
+													<name>wrapper.logfile.maxsize</name>
+													<value>100m</value>
+												</property>
+												<property>
+													<name>wrapper.logfile.maxfiles</name>
+													<value>30</value>
+												</property>
+											</configuration>
+										</generatorConfiguration>
+									</generatorConfigurations>
+								</daemon>
+							</daemons>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+				  <execution>
+					<id>copy-service-to-development-build</id>
+					<phase>install</phase>
+					<goals>
+					  <goal>copy-resources</goal>
+					</goals>
+					<configuration>
+					  <outputDirectory>${deployment.module.path}/all-platforms</outputDirectory>
+					  <resources>          
+						<resource>
+						  <directory>${project.build.directory}/dataload-dashboard/jsw</directory>
+						  <filtering>false</filtering>
+							<excludes>
+								<exclude>**/*.svn</exclude>
+							</excludes>
+						</resource>
+					  </resources>              
+					</configuration>            
+				  </execution>
+				</executions>
+			 </plugin>
+		</plugins>
+	</build>
+</project>

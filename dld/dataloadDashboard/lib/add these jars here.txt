@@ -1,0 +1,7 @@
+jackson-all-1.8.5.jar
+jackson-annotations.jar
+jackson-core.jar
+jackson-databind.jar
+jfilter-0.6.0.jar
+ojdbc6.jar
+sqljdbc42.jar

@@ -1,0 +1,52 @@
+.bizscoreBackgrnd{
+	width: 100% !important;
+    height: 100% !important;
+    background: url(../../../images/login-bg.jpg) no-repeat bottom center !important;
+	margin: 0 auto 0px !important;
+	    min-height: 650px;
+	}
+	
+	.bizscoreBackgrnd1{
+	width: 98% !important;
+    height: 100% !important;
+    }
+	
+	.orgLogo{
+		background:url('../../../images/login-logo.png') no-repeat center 60px;
+	}
+	
+	.helperText{
+		color: #8C8C8C;
+    font-family: arial;
+    font-size: 11px;
+    height: 25px;
+    width: 100%;
+    text-align: left !important;
+	}
+	
+	textarea:focus, input:focus{
+    outline: none !important;
+}
+
+select:focus {
+     box-shadow: none !important;
+	border: 1px solid #f0f0f0 !important;
+	
+}
+.login-errormsg-box{
+	    background: none;
+    border: 0px dashed #ffa8a8;
+    width: 400px;
+    height: auto;
+    margin: 0px auto;
+    padding: 5px 20px;
+    text-align: center;
+    color: #c43131;
+    font-size: 11px;
+}
+
+select option 
+{
+	padding: 0 4px;
+
+}

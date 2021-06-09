@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-lazy="false">
+   <class name="com.fintellix.framework.collaboration.dto.File" table="C_FILE">
+      <composite-id>
+         <key-property name="fileId" column="FILE_ID" />
+         <key-property name="versionNumber" column="VERSION_NUMBER" />
+      </composite-id>
+      <property name="fileName" column="FILE_NAME" />
+      <property name="fileDesc" column="FILE_DESC" />
+      <property name="createdTime" column="CREATED_TIME" />
+      <property name="modifiedTime" column="LAST_MODIFIED_TIME" />
+      <property name="creatorId" column="CREATED_BY" />
+      <property name="lastModifiedById" column="LAST_MODIFIED_BY" />
+      <property name="orgId" column="ORG_ID" />
+      <property name="packageLocation" column="PACKAGE_PATH" />
+      <property name="directoryId" column="DIRECTORY_ID" />
+      <property name="active" column="IS_ACTIVE" />
+      <property name="solutionId" column="SOLUTION_ID" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.Directory" table="C_DIRECTORY">
+      <id name="directoryId" column="DIRECTORY_ID" />
+      <property name="solutionId" column="SOLUTION_ID" />
+      <property name="directoryName" column="DIRECTORY_NAME" />
+      <property name="directoryDesc" column="DIRECTORY_DESC" />
+      <property name="createdTime" column="CREATED_TIME" />
+      <property name="modifiedTime" column="LAST_MODIFIED_TIME" />
+      <property name="creator" column="CREATED_BY" />
+      <property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+      <property name="orgId" column="ORG_ID" />
+      <property name="spaceId" column="SPACE_ID" />
+      <property name="isPrivate" column="IS_PRIVATE" />
+      <property name="packageLocation" column="PACKAGE_PATH" />
+      <property name="parentDirectoryId" column="PARENT_DIRECTORY_ID" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.Space" table="C_SPACE">
+      <id name="spaceId" column="SPACE_ID" />
+      <property name="spaceName" column="SPACE_NAME" />
+      <property name="spaceDesc" column="SPACE_DESC" />
+      <property name="createdTime" column="CREATED_TIME" />
+      <property name="createdBy" column="CREATED_BY" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.ContentSecurity" table="C_CONTENT_SECURITY">
+      <id name="contentSecurityId" column="CONTENT_SECURITY_ID" />
+      <property name="solutionId" column="SOLUTION_ID" />
+      <property name="orgId" column="ORG_ID" />
+      <property name="userId" column="USER_ID" />
+      <property name="securityTemplateName" column="SECURITY_TEMPLATE_NAME" />
+      <property name="contentTypeId" column="CONTENT_TYPE" />
+      <property name="contentId" column="CONTENT_ID" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.ContentProperties" table="C_CONTENT_PROPERTIES_LINK">
+      <composite-id>
+         <key-property name="contentId" column="CONTENT_ID" />
+         <key-property name="versionNumber" column="VERSION_NUMBER" />
+		 <key-property name="propertyId" column="PROPERTY_ID" />
+		 <key-property name="templateId" column="TEMPLATE_ID" />
+		 <key-property name="contentType" column="CONTENT_TYPE" />
+      </composite-id>
+      <property name="propertyValue" column="PROPERTY_VALUE" />
+      <property name="isMandatory" column="IS_MANDATORY" />
+      <property name="visibility" column="VISIBILITY" />
+      <property name="propertyDataType" column="PROPERTY_DATA_TYPE" />
+      <property name="isSecurityTemplate" column="IS_SECURITY_TEMPLATE" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.TemplateProperties" table="C_TEMPLATE_PROPERTIES">
+      <id name="propertyId" column="PROPERTY_ID" />
+      <property name="templateId" column="TEMPLATE_ID" />
+      <property name="propertyName" column="PROPERTY_NAME" />
+      <property name="propertyDesc" column="PROPERTY_DESC" />
+      <property name="isMandatory" column="IS_MANDATORY" />
+      <property name="toShow" column="TO_SHOW" />
+      <property name="propertyType" column="PROPERTY_TYPE" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.DocumentTemplate" table="C_DOCUMENT_TEMPLATE">
+      <id name="templateId" column="TEMPLATE_ID" />
+      <property name="templateName" column="TEMPLATE_NAME" />
+      <property name="templateDesc" column="TEMPLATE_DESC" />
+      <property name="isSecurityTemplate" column="IS_SECURITY_TEMPLATE" />
+   </class>
+   <class name="com.fintellix.framework.collaboration.dto.DirectoryTemplateLink" table="C_DIRECTORY_TEMPLATE_LINK">
+      <composite-id>
+         <key-property name="directoryId" column="DIRECTORY_ID" />
+		 <key-property name="templateId" column="TEMPLATE_ID" />
+      </composite-id>
+      <property name="isSecurityTemplate" column="IS_SECURITY_TEMPLATE" />
+   </class>
+    <class name="com.fintellix.framework.collaboration.dto.ContentSecurityAccessRole" table="C_CONTENT_SECURITY_ACCESS_ROLE">
+      <id name="contentSecurityId" column="CONTENT_SECURITY_ID" />
+      <property name="solutionId" column="SOLUTION_ID" />
+      <property name="orgId" column="ORG_ID" />
+      <property name="roleId" column="ACCESS_ROLE_ID" />
+      <property name="securityTemplateName" column="SECURITY_TEMPLATE_NAME" />
+      <property name="contentTypeId" column="CONTENT_TYPE" />
+      <property name="contentId" column="CONTENT_ID" />
+   </class>
+</hibernate-mapping>

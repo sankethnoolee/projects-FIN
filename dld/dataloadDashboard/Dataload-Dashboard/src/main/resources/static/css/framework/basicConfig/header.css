@@ -1,0 +1,39 @@
+.logo-box-header {
+    background: url(../../../images/logo.png) no-repeat 0px -22px;
+    float: left;
+    padding: 0;
+    width: 30%;
+    height: 50%;
+}
+
+#header-fintellix{
+	font: 13px Arial;
+	
+}
+.logoutBtn{
+	background-color: white;
+    border: none;
+    padding-left: 0px;
+}
+
+.userDetails{
+	width: 70%;
+    height: 50%;
+    float: right;
+}
+
+.navbuttons{
+	height: 21px !important;
+    padding: 0 0 !important;
+    border-radius: 0px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25) !important;
+    font-size: 11px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 1px !important;
+    background: #eee !important;
+}
+
+.navbuttons:hover{
+	background: #ddd !important;
+}

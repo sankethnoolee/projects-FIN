@@ -1,0 +1,554 @@
+    .x-menu-item-text{ 
+      top:1px !important;
+    }
+    
+    .helpNoteIndex{
+      height: 62%;
+      background-color: white;
+    }
+    .bulkRulesUploader{
+        font-size: 20px;
+        margin-left: 20px;
+        float: left; 
+        width:250px;
+    }
+    .rulesUploaderFilename{
+       font-size: 15px;
+       margin-left: 20px;
+       margin: 5px;
+       width: 450px;
+       float: left;
+    }
+    .mainParent{
+        width:100%;
+        height:auto;
+        background-color:#f1f1f1;
+    }
+    .uploadButton{
+      width: 92px; 
+      height: 29px;
+      margin-right: 112px;
+    }
+    .validationMsg{
+        display:none; 
+        color:red;
+        width: 250px;
+    }
+    .validateButton{
+      display:none;
+      float: left; 
+      margin-right:45px;
+      width: 92px; 
+      height: 29px;
+    }
+    .datepickerComponent{
+        width: 175px;
+        height:28px;
+        background:url("../../../images/calender.png") no-repeat right; 
+        background-color: white;
+        cursor:pointer;
+        text-align:center;
+        border: 1px solid gainsboro;
+        background-size: 26px 21px;
+    }
+    .downloadTemplateButton{
+      float: left;
+      width: 168px;
+      font-size: 15px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgba(191, 191, 191, 0.89);
+    /*   background:url(/bizscore/images/DownloadImages.jpg) no-repeat right;  */
+      padding: 6px;
+      text-align: center;
+      color:white;
+      cursor:pointer;
+    }
+    .uploadFileButton{
+      float: left;
+      width: 168px;
+      font-size: 15px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgba(46, 117, 182, 0.9);
+      padding: 6px;
+      text-align: center;
+      color:white;
+      cursor:pointer;
+    }
+    .validateFileButton{
+      float: left;
+      width: 168px;
+      font-size: 15px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgba(146, 208, 80, 0.6);
+      padding: 6px;
+      text-align: center;
+      color:white;
+      cursor:pointer;
+      display:none;
+    }
+    .downloadReportButton{
+      float: left;
+      width: 168px;
+      font-size: 15px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgba(28, 147, 33, 0.63);
+      padding: 6px;
+      text-align: center;
+      color:white;
+      cursor:pointer;
+      display:none;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+    }
+    .saveFileButton{
+      float: left;
+      width: 168px;
+      font-size: 15px;
+      height: 30px;
+      margin: 10px;
+      background-color: rgba(124, 124, 124, 0.6);
+      padding: 6px;
+      text-align: center;
+      cursor:pointer;
+      display:none;
+      color:white;
+    }
+    .buttonList{
+      height: 85px;
+      background-color: white;
+      border: 10px solid #f1f1f1;
+    }
+    .fileCount{
+      height: 70px;
+      background-color: white;
+      border-bottom: 10px solid #f1f1f1;
+      display:none;
+    }
+    .blueCountBlock{
+    float: left;
+    width: 69px;
+    height: 34px;
+    background-color: rgba(46, 117, 182, 0.7);
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 19px;
+    text-align: center;
+    margin-left: 4%;
+    }
+    .labelStyleForCount{
+      width: 123px;
+    float: left;
+    height: 34px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 15px;
+    }
+    .helpNote{
+     height:300px;
+     border: 15px solid #f1f1f1;
+     background-color:white;
+    }
+    .validationStatusBar{
+      height: 33px;
+      background-color: rgba(124, 124, 124, 0.6);
+      padding: 10px;
+      color:white;
+    }
+    .valStatusLabel{
+      font-size: 15px;
+      float:left;
+    }
+    .greeenCountBlock{
+       float: left;
+    width: 69px;
+    height: 27px;
+    background-color: rgba(146, 208, 80, 0.7);
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 3%;
+    }
+    .valStatusMenu{
+      border-bottom: 10px solid #f1f1f1;
+      display:none;
+    }
+    .labelStyleForStatus{
+      width: 130px;
+    float: left;
+    height: 34px;
+    font-size: 15px;
+    margin-top: 15px;
+    }
+    .redCountBlock{
+      float: left;
+    width: 69px;
+    height: 27px;
+    background-color: rgba(255, 0, 0, 0.7);
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 3%;
+    }
+    .valStatusDetails{
+      height:100px;
+      background-color: white;
+      display:none;
+    }
+    .validationStatusView{
+     height:50px;
+    }
+    .validationErrorView{
+     height:50px;
+    }
+    .statusView{
+     display:none;
+    }
+    .errorMessage{
+      width: 58%;
+      float: right;
+      display:none;
+    }
+    .saveMessage{
+      width: 38%;
+      float: right;
+      display:none;
+    }
+    .finalMessage{
+      width: 38%;
+      float: right;
+      display:none;
+    }
+    .finalErrorMessage{
+      width: 38%;
+      float: right;
+      display:none;
+    }
+    .hideOrShow{
+      float: right;
+      cursor: pointer;
+    }
+    .effectiveFrom{
+      float:left;
+      font-size:14px;
+      margin-top: 3px;
+      margin-right: 5px;
+    }
+    .datePickerClass{
+      width: 272px;
+      margin:10px;
+      float:right;
+    }
+    p{
+    font-size:15px;
+    margin:0px;
+    }
+    .ajaxMask{
+      position:absolute;
+      width: 99%;
+      height: 81%;
+      padding: 130px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      margin-bottom: 40px;
+      display:none;
+      opacity:.8;
+    }
+    .fileUploadForm{
+      position: relative;
+      overflow: hidden;
+      background-color: blue;
+      height: 30px;
+      width: 168px;
+      color: blue;
+      content: 'hi' !important;
+      line-height: 25px;
+      cursor:pointer;
+      padding: 6px;     
+      text-align: right;
+      font-size: 15px;
+      opacity: 0.6;
+    }
+    .chooseFile{
+        position: absolute;
+        cursor: pointer; 
+        color:white;
+        width: 154px;
+        line-height: 20px;
+
+    }
+    .sheetHeaderValidation{
+        width:100%;
+        height: 350px;
+        border: 10px solid #f1f1f1;
+        display:none;
+        
+    }
+    .sheetHeaderval{
+        margin: 10px;
+        font-weight: bold;
+        color:red;
+        font-size: 12px;
+        display:none;
+    }
+    .fileFormatError{
+        margin: 10px;
+        font-weight: bold;
+        color:red;
+        font-size: 13px;
+        display:none;
+    }
+    .uploadBtn {
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+		margin-right: 38px;
+    }
+
+    .btn-upload {
+        color: #fff;
+/*         background-color: gray; */
+        padding: 0px;
+        font-size:15px;
+    }
+    .fileinput-button input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        opacity: 0;
+        font-size: 200px;
+        cursor: pointer;
+}
+/*         Migration Uploader */
+.labelStyle{
+    font-size: 15px;
+    font-weight: bold;
+    width: 27%;
+    float: left;
+    margin: 15px;
+}
+.searchEntityHistory{
+    width: 27%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    background-image: url("../../../images/search.jpg"); 
+    background-position: 3px 2px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-left: 25px;
+	background-size: 27px;
+}
+#historyDataHeader{
+    margin: 20px;
+    height: 100px;
+    border: 5px solid gainsboro;
+    border-left: 2px solid gainsboro;
+    border-bottom: 2px solid gainsboro;
+}
+.downloadClass{
+    width: 22px;
+	margin-left:17%;
+    float: left;
+    height: 25px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url("../../../images/new_download.png"); 
+    background-position: 3px 1px;
+    background-repeat: no-repeat;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-top: 5px;
+    cursor:pointer;
+}
+.elementStyleHistory{
+    width: 5%;
+    height:30px;
+    line-height:30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 20px;
+}
+
+.rollbackClass{
+    width: 24px;
+    margin-left: 13px;
+    float: left;
+    height: 20px;
+	text-overflow: ellipsis;
+    font-size: 16px;
+    background-color: white;
+    background-image: url("../../../images/Back.jpg"); 
+    background-position: 3px 1px;
+    background-repeat: no-repeat;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-top: 5px;
+    cursor:pointer;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+text-align: center;
+    vertical-align: middle;
+}
+::-moz-placeholder { /* Firefox 19+ */
+text-align: center;   
+}
+:-ms-input-placeholder { /* IE 10+ */
+text-align: center;
+    vertical-align: middle;
+}
+:-moz-placeholder { /* Firefox 18- */
+text-align: center;   
+}
+
+
+#currentBusinessDateParent{
+	height: 100%;
+    width: 70%;
+    float: left;
+}
+
+
+#cbdDateComponentParent{
+	height: 100%;
+    margin-left: 1%;
+    width: 14%;
+    float: right;
+    margin-right: 0%;
+}
+
+#cbdHeading{
+	
+    color: #404040;
+    height: 30%;
+    width: 80%;
+    margin-left: 19%;
+}
+
+#cbdDecrement{
+	height: 28%;
+    width: 6%;
+    padding-left: 3%;
+    font-weight: bold;
+    font-size: 15px;
+    float: left;
+    margin-top: 3%;
+    cursor: pointer;
+}
+
+#cbdIncrement{
+	height: 28%;
+    width: 5%;
+    padding-left: 0%;
+    font-weight: bold;
+    font-size: 15px;
+    float: left;
+    margin-top: 3%;
+    margin-left: 0%;
+    cursor: pointer;
+}
+
+
+#cbdCustomDisplayParent{
+   width: 74%;
+    height: 60%;
+    float: left;
+    cursor: pointer;
+}
+
+.cbdDateDay{
+	float: left;
+    width: 22%;
+    height: 75%;
+    font-size: 22px;
+    text-align: center;
+    margin-left: 7%;
+    margin-top: -2%;
+}
+
+.cbdDateMonth{
+	float: left;
+    height: 43%;
+    width: 18%;
+    font-size: 14px;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding-left: 0%;
+}
+.cbdDateYear{
+	float: left;
+    height: 50%;
+    width: 25%;
+    font-size: 15px;
+    margin-top: 2%;
+    margin-left: 4%;
+}
+.cbdDateWeek{
+	height: 27%;
+    width: 95%;
+    text-align: left;
+    margin-top: 33px;
+    loat: left;
+    line-height: 65%;
+    font-size: 12px;
+    margin-left: 25%;
+    color: #616161;
+}
+
+#cbdDatePicker{
+	background: url(../../../images/calender.png) no-repeat right;
+    background-size: 20px 20px;
+    border: none;
+    width: 72%;
+    height: 50%;
+    color: rgba(255, 255, 255, 0);
+    transform: translateY(-209%);
+    cursor: pointer;
+    margin-left: 23%;
+    margin-top: 0%;
+}
+#entityDetailCount
+{
+	display:none !important;
+}
+#entityDetailId
+{
+	display:none !important;
+}
+#entityDetailValStatus
+{
+	display:none !important;
+}
+#labelStyleForStatus13 
+{
+	display:none !important;
+}
+#entityDetailValErrorStatus ,#labelStyleForStatus14 
+{
+	display:none !important;
+}

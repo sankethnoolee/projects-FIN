@@ -1,0 +1,42 @@
+	{
+    "name" : "Fintellix Repository",
+	"jndiName" : "",
+    "workspaces" : {
+        "predefined" : ["DATAHUB"],
+        "default" : "default",
+        "allowCreation" : true
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        }
+    },
+    "storage": {
+    	"persistence": {
+        	"type": "db",
+			"connectionUrl": "jdbc:sqlserver://172.50.3.10:1433;DatabaseName=platform_mdc_pilot_1",
+			"username":"plt",
+			"password":"Welcome1",
+            "driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+			"tableName":"DOCUMENT_STORE",
+			"createOnStart":"TRUE",
+			"dropOnExit":"FALSE",
+			"compress":"false",
+			"poolSize":10,
+			"minimumIdle" : 4,
+			"leakDetectionThreshold" : 4000,
+			"maximumPoolSize" : 25,
+			"readOnly" : false,
+			"poolName" : "testPool"
+    	},
+    	"binaryStorage" : {
+            "type"  : "mongo",
+            "host" : "localhost",
+            "port" : 27017,
+            "username" : "",
+            "password" : "",
+            "database" : "test"
+        }
+	}
+}

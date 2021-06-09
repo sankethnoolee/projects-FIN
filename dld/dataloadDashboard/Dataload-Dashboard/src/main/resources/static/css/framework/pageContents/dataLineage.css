@@ -1,0 +1,705 @@
+.hideToolTip{
+	display:none !important;
+}
+.tooltip {
+
+    opacity: 1 ;
+    transition: opacity 0.3s;
+    /* text-shadow: 1px 1px 0px grey; */
+    z-index: 100;
+	display:none;
+}
+div.tooltip {
+    background: hsla(0, 0%, 6%, 0.73);
+    border: solid #0f0f0f;
+    position: absolute;
+    min-width: 210px;
+    text-align: center;
+    color: #d5d5d5;
+    font-family: Segeo UI;
+    border-radius: 14px;
+    padding: 7px;
+	font-size:11px;
+	width:400px;
+}
+
+.node{
+
+	    height: 30px;
+    width: 50px;
+    background-color: red;
+    color: black;
+    margin: 20px auto;
+
+}
+
+.parentS{
+	min-height: 300px;
+    min-width: 300px;
+    background-color: #f0f0ec;
+    border: 1px solid  #f0f0ec;
+    display:inline-block;
+	vertical-align:top;
+	padding: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+.receptionLevelStyle{
+	min-height: 300px;
+     min-width: 200px;
+    background-color: #fffef3;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+}
+
+.sourceSystemLevelStyle{
+	    min-height: 0px;
+    min-width: -webkit-fill-available;
+    background-color: #f6fcff;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 99%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	padding-bottom:15px;
+
+}
+.solutionLevelStyle{
+	    min-height: 0px;
+    min-width: -webkit-fill-available;
+    background-color: #f6fcff;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 99%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	padding-bottom:15px;
+
+}
+
+.datahubLevelStyle{
+	min-height: 300px;
+     min-width: 200px;
+    background-color: #fffaeb;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+}
+
+.martLevelStyle{
+	    min-height: 300px;
+     min-width: 200px;
+    background-color: #fdf2e1;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.stagingLevelStyle{
+	    min-height: 300px;
+     min-width: 200px;
+    background-color: #fffffb;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.dataConsumerLevelStyle{
+	    min-height: 300px;
+     min-width: 200px;
+    background-color: #fafdf7;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+
+
+}
+.sourceSystemSlab{
+	    width: 150px;
+    background-color: #92cfff;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	border-color: #6ebdf7;
+
+	}
+	.martSlab{
+	width: 150px;
+    background-color: #ffb74d;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	        border-color: #ffdb9b;
+	}
+	
+	.receptionSlab{
+	    width: 150px;;
+    background-color: #fff176;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	border-color: #ffdb9b;
+	}
+	
+	.datahubSlab{
+	    width: 150px;;
+    background-color: #ffd54f;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	border-color: #ffdb9b;
+	}
+	
+	.dataConsumerSlab{
+	width: 150px;;
+    background-color: #aed581;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	    border-color: #97c661;
+	}
+	.martSlab span {
+     content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 9px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+.receptionSlab span {
+    content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 9px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+.stagingSlab span {
+    content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 9px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+.datahubSlab span {
+     content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 9px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+.dataConsumerSlab span {
+       content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 9px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+
+	.sourceSlab{
+	width: 150px;
+    background-color: #8faadc;
+    height: 30px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+	border: 1px solid #4f80dc;
+	cursor:pointer;
+	}
+	.elementName{
+	    height: 100%;
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    font-weight: bold;
+    font-family: Segoe UI;
+	font-size: 10px;
+	}
+.sourceSlab span {
+       content: "\f061";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 8px 0px 0 -17px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+}
+
+.sourceSystemParent{
+min-height: 300px;
+         min-width: 200px;
+    background-color: #e3f2fd;
+    border: 1px solid #d4e8f7;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+	margin-right: 5px;
+	padding: 0 7px 0px 7px;
+}
+
+
+.elementImageStyle{
+       width: 20px;
+    height: 20px;
+    float: left;
+    margin: 10px 0px 0 0px;
+    font-size: 11px;
+     
+}
+.infoImage{
+ width: 20px;
+ z-index:100;
+    height: 20px;
+    float: left;
+    margin: 10px 0px 0 0px;
+    font-size: 11px;
+}
+
+.sourceDescription{
+          display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #e5f3ff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dataRepoParent{
+        min-height: 300px;
+    min-width: 300px;
+    background-color: #ffdb9b;
+    border: 1px solid #fdeed6;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-right: 5px;
+	}
+	
+	.receptionParent{
+	    min-height: 300px;
+    min-width: 100px;
+    background-color: #fff9c4;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-right: 5px;
+	}
+	.stagingSlab{
+	    width: 150px;
+    background-color: #fff492;
+    height: 60px;
+    text-align: center;
+    margin-left: 11%;
+    margin-top: 10px;
+    line-height: 28px;
+    color: #464646;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	border-color: #ffdb9b;
+	}
+	
+	.stagingParent{
+	
+	    min-height: 300px;
+    min-width: 100px;
+    background-color: #fffbd7;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+	margin-right:5px;
+	}
+	.sourceNameParent{
+	min-height: 0px;
+    min-width: 100px;
+    background-color: #b3e5fc;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+	}
+	.solutionNameParent{
+	min-height: 0px;
+    min-width: 190px;
+    background-color: #dcedc8;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+	}
+	.datahubParent{
+	    min-height: 300px;
+    min-width: 100px;
+    background-color: #ffecb3;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin-right: 5px;
+	
+	}
+	.martParent{
+	    min-height: 300px;
+    min-width: 100px;
+    background-color: #ffe0b2;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+	margin-right:5px;
+	}
+	
+	.martParent:last-child{
+	    min-height: 300px;
+    min-width: 100px;
+    background-color: #ffe0b2;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+	margin-right:0px;
+	}
+	
+	.receptionDescription{
+	    display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #fffdea;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;}
+	.stagingDescription{
+	    display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #fffef2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;}
+	
+	
+	.datahubDescription{
+	        display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #fff8e2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;}
+	
+	
+	.martDescription{
+	     display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #fff3e1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+	 }
+	 .dataConsumerDescription{
+	 display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: #f5f9f1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+	 }
+	 .dataConsumerParent{
+	     min-height: 300px;
+    min-width: 100px;
+    background-color: #f1f8e9;
+    border: 1px solid #efffdc;
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	 }
+	 
+	 .hightLightSlab{    border-width: 0px !important;
+	     border-style: solid !important;}
+		
+
+	.collapsedText{
+	transform: translateY(33px) rotate(-90deg);
+    width: 100px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+		 }
+	.collapsedText>span{
+	float:left;
+	}
+	.collapsedText>.headingTypeTextSpan{
+	width: 80px !important;	 
+	float:right;
+	
+	}
+	
+	.collapsedSlab{
+	width:0;
+	margin-left:0px;
+	}
+	
+	.collapsedSlabForDSDC{
+	height:0px !important;
+	margin:0px;
+	}
+	
+	.collapsed:after{
+	display:none;
+	}
+	.typeText{
+		cursor: pointer;
+    z-index: 100;
+    position: relative;
+    font-size: 12.4px;
+    line-height: 2.5 !important;
+	}
+	
+	.expandCollapseImg{
+	    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+	}
+.nodes{
+z-index:99;
+}
+
+
+
+
+.hideNode{
+	display:none;
+}
+
+/*loader*/
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+	display:none;
+}
+.loader {
+  border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #00b0f0;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+}
+.darkNodes,.darkPath{
+	opacity:1 !important;
+	display:block !important;
+}
+.darkPath{
+	z-index:99 !important;
+}
+.lightNodes{
+	opacity:0.4;
+}
+.lightPath{
+	opacity:0.1;
+	z-index:0;
+}
+
+.hideLightNodes,.hidePaths{
+	display:none;
+}.hidePathsImp{
+	display:none !important;
+}
+.parentHidden{
+	display:none;
+}
+#sourceForInfo,#taskForInfo,#statusForInfo
+{
+	display:inline-block;
+	width:120px;
+}
+
+
+.flowShowParent{
+	display: none;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    /* padding: 0px 0px 0px 5px; */
+    font-size: 9px;
+    background-color: rgba(38, 38, 38, 0);;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.lienageFlowBack{
+	float:left;
+	margin-left:1%;
+	height:25px;
+	width:25px;
+	font-size:12px;
+	    line-height: 2;
+}
+.lienageFlowFWD{
+	float:right;
+	margin-right:1%;
+	height:25px;
+	width:25px;
+	font-size:12px;
+	    line-height: 2;
+}
+
+.disabledFlow{
+	pointer-events:none;
+	opacity:0.5;
+}
+
+.COMPLETED{
+	COLOR:#92d050;
+}
+.FAILED{
+	COLOR:#f56262;
+}.PENDING{
+	COLOR:#ffc000;
+}.NOTAPPLICABLE{
+	COLOR:#595959;
+}
+
+.fa-database-s{
+	margin: 5px 2px 0 0px !important;
+    background: url('../../../images/lineageSS.png') no-repeat right;
+    background-size: 15px 14px;
+    height: 20px;
+    width: 18px;
+    font-size: 15px;
+}
+
+.fa-newspaper-o-s{
+	margin: 5px 2px 0 0px !important;
+    background: url('../../../images/lineageDC.png') no-repeat right;
+    background-size: 15px 14px;
+    height: 20px;
+    width: 18px;
+    font-size: 15px;
+}
+
+.fa-table-s{
+	margin: 5px 2px 0 0px !important;
+    background: url('../../../images/lineageDC.png') no-repeat right;
+    background-size: 15px 14px;
+    height: 20px;
+    width: 18px;
+    font-size: 15px;
+}
+
+.headingTypeTextSpan{
+	width:180px !important;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	display:inline-block;
+}
+

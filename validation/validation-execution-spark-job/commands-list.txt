@@ -1,0 +1,11 @@
+java -jar "D:\svn\platform\branches\Platform_3.1.4_adjustments\validation-execution-spark-job\target\validation-execution-spark-job-1.0-SNAPSHOT.jar" "D:\svn\platform\branches\Platform_3.1.4_adjustments\validation-execution-spark-job\input.json"
+
+spark-submit --class myapp.Main -- master local[*]       file:///C:\Users\pc\Desktop\eclipse\myjar.jar args
+
+spark-submit --class com.fintellix.framework.App --master local[*] "D:\svn\platform\branches\Platform_3.1.4_adjustments\validation-execution-spark-job\target\validation-execution-spark-job-1.0-SNAPSHOT.jar" "D:\svn\platform\branches\Platform_3.1.4_adjustments\validation-execution-spark-job\input.json"
+
+
+local cluster
+
+./spark-class org.apache.spark.deploy.master.Master
+./spark-class org.apache.spark.deploy.worker.Worker spark://172.29.194.152:7077

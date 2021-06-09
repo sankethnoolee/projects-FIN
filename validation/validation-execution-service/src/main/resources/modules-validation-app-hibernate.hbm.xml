@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.fintellix.framework.validation.dto.ValidationMaster" table="VALIDATION_MASTER">
+		<composite-id>
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="sequenceNo" column="SEQUENCE_NO" />
+			<key-property name="solutionId" column="SOLUTION_ID" />
+		</composite-id>
+		<property name="validationCode" column="VALIDATION_CODE" />
+		<property name="validationName" column="VALIDATION_NAME" />
+		<property name="validationDesc" column="VALIDATION_DESC" />
+		<property name="entityCode" column="ENTITY_CODE" />
+		<property name="entityType" column="ENTITY_TYPE" />
+		<property name="startDate" column="START_DATE" />
+		<property name="endDate" column="END_DATE" />
+		<property name="isActive" column="IS_ACTIVE_RECORD" />
+		<property name="status" column="STATUS" />
+		<property name="validationExpression" column="VALIDATION_EXPRESSION" />
+		<property name="lastModificationDate" column="LAST_MODIFICATION_DATE" />
+		<property name="userId" column="USER_ID" />
+		<property name="validationType" column="VALIDATION_TYPE" />
+
+		<bag name="validationReportLinkList" table="VALIDATION_RETURN_LINKAGE" inverse="true">
+			<key>
+				<column name="VALIDATION_ID" />
+				<column name="SEQUENCE_NO" />
+				<column name="SOLUTION_ID" />
+			</key>
+			<one-to-many class="com.fintellix.framework.validation.dto.ValidationReportLink" />
+		</bag>
+	</class>
+
+	<class name="com.fintellix.framework.validation.dto.ValidationReportLink" table="VALIDATION_RETURN_LINKAGE">
+		<composite-id>
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="sequenceNo" column="SEQUENCE_NO" />
+			<key-property name="solutionId" column="SOLUTION_ID" />
+			<key-property name="regReportSectionId" column="REG_REPORT_SECTION_ID" />
+			<key-property name="regReportId" column="REG_REPORT_ID" />
+		</composite-id>
+		
+		<property name="commentLevel" column="IS_COMMENT_AT_VALIDATION" />
+		<property name="validationCategory" column="VALIDATION_CATEGORY" />
+		<property name="validationGroupId" column="VALIDATION_GROUP_ID" />
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationRequest" table="VALIDATION_REQUEST">
+		<id name="runId" column="RUN_ID">
+			<generator class="sequence">
+				<param name="sequence_name">VALIDATION_REQUEST_SEQUENCE</param>
+			</generator>
+		</id>
+		
+		<property name="solutionId" column="SOLUTION_ID" />
+		<property name="periodId" column="PERIOD_ID" />
+		<property name="orgId" column="ORG_ID" />
+		<property name="requestStartDate" column="REQUEST_START_DATE_TIME" />
+		<property name="requestEndDate" column="REQUEST_END_DATE_TIME" />
+		<property name="entityType" column="ENTITY_TYPE" />
+		<property name="userId" column="USER_ID" />
+		<property name="requestStatus" column="REQUEST_STATUS" />
+		<property name="orgCode" column="ORG_CODE" />
+		<property name="payload" column="PAYLOAD" />
+		<property name="entityCode" column="ENTITY_CODE" />
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationReturnResult" table="VALIDATION_RETURN_RESULT">
+		<composite-id>
+			<key-property name="runId" column="RUN_ID" />
+			<key-property name="solutionId" column="SOLUTION_ID" />
+		</composite-id>
+		
+		<property name="periodId" column="PERIOD_ID" />
+		<property name="regReportId" column="REG_REPORT_ID" />
+		<property name="regReportVersionNumber" column="REG_REPORT_VERSION_NUMBER" />
+		<property name="versionNumber" column="VERSION_NO" />
+		<property name="orgId" column="ORG_ID" />
+		<property name="startDate" column="START_DATE_TIME" />
+		<property name="endDate" column="END_DATE_TIME" />
+		<property name="status" column="STATUS" />
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationRunDetails" table="VALIDATION_RUN_DETAILS">
+		<composite-id>
+			<key-property name="runId" column="RUN_ID" />
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="sequenceNumber" column="SEQUENCE_NUMBER" />
+		</composite-id>
+		<property name="status" column="STATUS" />
+		<property name="evaluatedExpression" column="EVALUATED_EXPRESSION" />
+		<property name="totalOccurrence" column="TOTAL_OCCURRENCE" />
+		<property name="totalFailed" column="TOTAL_FAILED" />
+		<property name="validationType" column="VALIDATION_TYPE" />
+		<property name="dimensionsCSV" column="DIMENSIONS_CSV" />
+		<property name="replacedExpression" column="REPLACED_EXPRESSION" />
+		
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationComments" table="VALIDATION_COMMENTS">
+		<composite-id>
+			<key-property name="periodId" column="PERIOD_ID" />
+			<key-property name="regReportId" column="REG_REPORT_ID" />
+			<key-property name="versionNumber" column="VERSION_NO" />
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="occurrence" column="OCCURRENCE" />
+			<key-property name="orgId" column="ORG_ID" />
+		</composite-id>
+		<property name="comment" column="COMMENTS" />
+		<property name="commentHistory" column="COMMENT_HISTORY" />
+		<property name="lastModificationDate" column="LAST_MODIFICATION_DATE" />
+		<property name="lastModifiedByUserId" column="LAST_MODIFIEDBY_USERID" />
+		<property name="isMigrated" column="IS_MIGRATED" />
+		
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationGroup" table="VALIDATION_GROUP">
+		<id name = "groupId" column = "GROUP_ID"></id>
+		<property name="groupName" column="GROUP_NAME" />
+		<property name="groupDesc" column="GROUP_DESC" />
+		<property name="isActive" column="IS_ACTIVE" />
+	</class>
+	
+	<class name="com.fintellix.framework.validation.dto.ValidationLineItemLink" table="VALIDATION_LINE_ITEM_LINK">
+		<composite-id>
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="sequenceNo" column="SEQUENCE_NO" />
+			<key-property name="solutionId" column="SOLUTION_ID" />
+			<key-property name="regReportId" column="REG_REPORT_ID" />
+			<key-property name="sectionId" column="SECTION_ID" />
+			<key-property name="lineItemName" column="LINE_ITEM_NAME" />
+		</composite-id>
+		
+	</class>
+
+	<class name="com.fintellix.framework.validation.dto.ValidationEntityLinkage" table="VALIDATION_ENTITY_LINKAGE">
+		<composite-id>
+			<key-property name="validationId" column="VALIDATION_ID" />
+			<key-property name="sequenceNo" column="SEQUENCE_NO" />
+			<key-property name="solutionId" column="SOLUTION_ID" />
+		</composite-id>
+
+		<property name="validationCategory" column="VALIDATION_CATEGORY" />
+		<property name="validationGroupId" column="VALIDATION_GROUP_ID" />
+	</class>
+
+	<class name="com.fintellix.framework.validation.dto.ValidationCleanupRecord" table="VALIDATION_CLEANUP_RECORD">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence_name">VALIDATION_CLEANUP_RECORD_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="type" column="TYPE" />
+		<property name="path" column="PATH" />
+		<property name="createdDate" column="CREATED_DATE" />
+		<property name="isDeleted" column="IS_DELETED" />
+	</class>
+
+</hibernate-mapping>

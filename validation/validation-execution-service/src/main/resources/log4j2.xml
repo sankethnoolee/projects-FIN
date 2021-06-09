@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT" immediateFlush="false" >
+            <PatternLayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>>
+            </PatternLayout>
+        </Console>
+        <File name="File-Appender" fileName="logs/validation_log.log" immediateFlush="false" >
+            <PatternLayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.northconcepts.datapipeline" level="INFO" includeLocation="true">
+            <appender-ref ref="Console-Appender" />
+            <appender-ref ref="File-Appender" />
+        </Logger>
+		 
+		<Logger name="org.hibernate" level="INFO" includeLocation="true">
+			<appender-ref ref="Console-Appender" />
+			<appender-ref ref="File-Appender" />
+		</Logger>
+
+		<root level="INFO">
+			<appender-ref ref="Console-Appender" />
+			<appender-ref ref="File-Appender" />
+		</root>
+    </Loggers>
+</Configuration>

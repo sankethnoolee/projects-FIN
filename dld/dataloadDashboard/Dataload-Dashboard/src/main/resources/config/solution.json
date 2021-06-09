@@ -1,0 +1,40 @@
+{
+    "driverClassName": "oracle.jdbc.driver.OracleDriver",
+    "solutions": [
+        {
+            "solution_name": "Biz$core_Banking_REGREP",
+            "solution_id": 0,
+            "solution_url": "http://172.22.0.211:8080/bizscore/j_acegi_security_check",
+            "dbType":"ORACLE",
+			 "jdbc_url": "jdbc:oracle:thin:@172.50.3.2:1521:ORCL",
+            "database_username": "PLT_PLATFORMDB_310_1",
+            "database_password": "Password1",
+            "initialSize":10,
+            "maxTotal":25,
+            "maxIdle":25,
+            "minIdle":10,
+            "maxWaitMillis":120000,
+            "dbType":"ORACLE",
+			"isPrimaryFrequency":"Y",
+			"reportStatusURL":"http://172.17.1.9:9080/RQService/api/getlineinfo",
+			"clientCode":"PLT"
+        },{
+        	"solution_name": "RBS",
+            "solution_id": 0,
+            "solution_url": "http://172.22.0.212:8080/bizscore/j_acegi_security_check",
+            "dbType":"ORACLE",
+			"jdbc_url": "jdbc:oracle:thin:@172.50.3.2:1521:ORCL",
+            "database_username": "PLT_PLATFORMDB_310_1",
+            "database_password": "Password1",
+            "initialSize":10,
+            "maxTotal":25,
+            "maxIdle":25,
+            "minIdle":10,
+            "maxWaitMillis":120000,
+            "dbType":"ORACLE",
+			"isPrimaryFrequency":"N",
+			"reportStatusURL":"http://172.17.1.9:9080/RQService/api/getlineinfo"
+			"clientCode":"PLT"
+        }
+    ]
+}

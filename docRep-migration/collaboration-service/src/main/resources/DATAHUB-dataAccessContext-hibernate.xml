@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">	
+       
+
+	
+	<bean id="hikariConfigMart" class="com.zaxxer.hikari.HikariConfig">
+		<property name="poolName" value="springHikariCPDHUB" />
+		<property name="DriverClassName" value="${jdbc.DATAHUB.datasourceClassName}" />
+		<property name="maximumPoolSize" value="50" />
+		<property name="idleTimeout" value="30000" />
+		<property name="maxLifetime" value="28800000" />
+		<property name="username" value="${jdbc.DATAHUB.username}"/>
+		<property name="password" value="${jdbc.DATAHUB.password}"/>
+		<property name="JdbcUrl" value="${jdbc.DATAHUB.url}"/>
+		<property name="dataSourceProperties">
+			<props>
+				
+				
+				<prop key="cachePrepStmts">true</prop>
+				<prop key="prepStmtCacheSize">250</prop>
+				<prop key="prepStmtCacheSqlLimit">2048</prop>
+				<prop key="useServerPrepStmts">true</prop>
+				
+			</props>
+		</property>
+	</bean>
+	<!-- Local DataSource that works in any environment -->
+	<bean id="DATAHUBSolutionDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfigMart" /> 
+
+	</bean>
+
+	
+	<bean id="DATAHUBSolutionSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="DATAHUBSolutionDataSource"/>
+		<property name="mappingResources">
+		   <list>
+		   </list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${DATAHUB.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.connection.release_mode">after_transaction</prop>
+   				<prop key="hibernate.c3p0.timeout">1</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!--  
+	<bean id="DATAHUBSolutionDataSource_v4" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.DATAHUB.datasourceClassName}"/>
+		<property name="url" value="${jdbc.DATAHUB.url}"/>
+		<property name="username" value="${jdbc.DATAHUB.username}"/>
+		<property name="password" value="${jdbc.DATAHUB.password}"/> 
+		<property name="maxActive" value ="${jdbc.DATAHUB.maxActive}" />
+	</bean>
+	-->
+	
+	<bean id="DATAHUBSolutionSessionFactory_v4" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="DATAHUBSolutionDataSource"/>
+		<property name="mappingResources">
+		   <list>
+		   <!-- HBM files need to be added here -->
+		   </list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${DATAHUB.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.connection.release_mode">after_transaction</prop>
+   				<prop key="hibernate.c3p0.timeout">1</prop>
+			</props>
+		</property>
+	</bean>
+	
+		
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="DATAHUBtransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="DATAHUBSolutionSessionFactory"/>
+	</bean>
+		<tx:advice id="DATAHUBdefaultTxAdvice" transaction-manager="DATAHUBtransactionManager">
+       <!-- the transactional semantics... -->
+       <tx:attributes>
+          <!-- all methods starting with 'get' are read-only -->
+          <tx:method name="get*" read-only="true"/>
+          <!-- other methods use the default transaction settings (see below) -->
+          <tx:method name="*" rollback-for="com.fintellix.platformcore.common.exception.VyasaException"/>
+       </tx:attributes>
+    </tx:advice>
+    
+    
+    <tx:advice id="DATAHUBnoTxAdvice" transaction-manager="DATAHUBtransactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="NEVER"/>
+        </tx:attributes>
+    </tx:advice>
+      
+    <aop:config>
+      <aop:pointcut id="DATAHUBvyasaServiceOperation" expression="execution(* com..*BO.*(..)) || execution(* com..*Bo.*(..)) || execution(* com..*bo.*(..)) || execution(* com.fintellix.platformcore..*BO.*(..)) || execution(* com.fintellix.platformcore..*Bo.*(..))" />
+      <aop:advisor advice-ref="DATAHUBdefaultTxAdvice" pointcut-ref="DATAHUBvyasaServiceOperation"/>
+    </aop:config>
+   
+</beans>

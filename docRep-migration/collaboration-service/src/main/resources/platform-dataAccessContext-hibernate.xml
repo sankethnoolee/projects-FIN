@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       
+ 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+       
+<!--
+  - Application context definition for iCreate on Hibernate.
+  -->
+  
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+  
+	<!-- Configurer that replaces MavenProject: com.fintellix.editcheckrestservice:editcheck-execution-service:0.0.1-SNAPSHOT @ /u01/fintellix-svn/platform/trunk/editcheckExecution/editcheck-execution-service/pom.xml placeholders with values from a properties file -->
+	<!-- (in this case, JDBC-related settings for the dataSource definition below) --> 
+	<!-- <beans:bean id="propertyConfigurer" class="org.springframework.beans:beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties"/>
+	</beans:bean> -->
+
+	<beans:bean id="bouncyCastleProvider" class="org.bouncycastle.jce.provider.BouncyCastleProvider">
+	</beans:bean>
+
+	<beans:bean id="environmentVariablesConfiguration" class="com.fintellix.platformcore.web.filter.security.EnvironmentStringPBEConfigIcreate">
+        <beans:property name="algorithm" value="PBEWITHSHA256AND256BITAES-CBC-BC" />
+        <beans:property name="provider" ref="bouncyCastleProvider" />
+    </beans:bean>
+                                                                          
+    <beans:bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+        <beans:property name="config" ref="environmentVariablesConfiguration" />
+    </beans:bean>
+          
+    <beans:bean id="propertyConfigurer" class="org.jasypt.spring.properties.EncryptablePropertyPlaceholderConfigurer" >
+        <beans:constructor-arg ref="configurationEncryptor" />
+        <beans:property name="locations">
+        
+            <beans:list>
+                <beans:value>classpath:jdbc-appdb.properties</beans:value> 
+                <beans:value>classpath:jdbc-marts.properties</beans:value>  
+            </beans:list>
+         </beans:property>
+    </beans:bean>
+      
+	<!-- Local DataSource that works in any environment -->
+	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<beans:property name="url" value="${jdbc.url}"/>
+		<beans:property name="username" value="${jdbc.username}"/>
+		<beans:property name="password" value="${jdbc.password}"/>
+		<beans:property name="maxActive" value ="20" />
+	</beans:bean> -->
+	
+	<beans:bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<beans:property name="poolName" value="springHikariCP" />
+		<beans:property name="maximumPoolSize" value="50" />
+		<beans:property name="idleTimeout" value="30000" />
+		<beans:property name="maxLifetime" value="28800000" />
+		<beans:property name="username" value="${jdbc.username}" />
+		<beans:property name="password" value="${jdbc.password}" />
+		<beans:property name="DriverClassName" value="${jdbc.datasourceClassName}" />
+		<beans:property name="JdbcUrl" value="${jdbc.url}"/>
+		<beans:property name="dataSourceProperties">
+			<beans:props>
+				
+				<beans:prop key="cachePrepStmts">true</beans:prop>
+				<beans:prop key="prepStmtCacheSize">250</beans:prop>
+				<beans:prop key="prepStmtCacheSqlLimit">2048</beans:prop>
+				<beans:prop key="useServerPrepStmts">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
+	
+	<beans:bean primary="true" id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<beans:constructor-arg ref="hikariConfig" /> 
+
+	</beans:bean>
+	
+	<!-- JNDI DataSource for J2EE environments -->
+	<!--
+	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactorybeans:bean">
+		<beans:property name="jndiName" value="java:comp/env/jdbc/icreateBI"/>
+	</beans:bean>
+	-->
+	<!-- Or if using the jee namespace -->
+	<!-- 
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/icreateBI"/> 
+	 -->
+
+	<!-- Hibernate SessionFactory -->
+	<beans:bean primary="true" id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mappingResources">
+		   <beans:list>
+			  <!-- <beans:value>platform-icreateBI.hbm.xml</beans:value> -->
+			  <beans:value>modules-collaboration-hbm.xml</beans:value>
+		   </beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+		
+			<beans:props>
+				<beans:prop key="hibernate.dialect">${hibernate.dialect}</beans:prop>
+				<beans:prop key="hibernate.show_sql">false</beans:prop>
+				<beans:prop key="hibernate.generate_statistics">true</beans:prop>
+				<beans:prop key="hibernate.format_sql">false</beans:prop>
+				<beans:prop key="hibernate.use_sql_comments">false</beans:prop>
+				<beans:prop key="hibernate.connection.release_mode">after_transaction</beans:prop>
+   				<beans:prop key="hibernate.c3p0.timeout">1</beans:prop>
+   			</beans:props>
+		</beans:property>
+	</beans:bean>	
+	
+	
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<beans:bean id="PlatformtransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<beans:property name="sessionFactory" ref="sessionFactory"/>
+	</beans:bean>
+	<tx:advice id="PlatformdefaultTxAdvice" transaction-manager="PlatformtransactionManager">
+       <!-- the transactional semantics... -->
+       <tx:attributes>
+          <!-- all methods starting with 'get' are read-only -->
+          <tx:method name="get*" read-only="true"/>
+          <!-- other methods use the default transaction settings (see below) -->
+          <tx:method name="*" rollback-for="com.fintellix.platformcore.common.exception.VyasaException"/>
+       </tx:attributes>
+    </tx:advice>
+    
+    
+    <tx:advice id="PlatformnoTxAdvice" transaction-manager="PlatformtransactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="NEVER"/>
+        </tx:attributes>
+    </tx:advice>
+      
+    <aop:config>
+      <aop:pointcut id="PlatformvyasaServiceOperation" expression="execution(* com..*BO.*(..)) || execution(* com..*Bo.*(..)) || execution(* com..*bo.*(..)) || execution(* com.fintellix.platformcore..*BO.*(..)) || execution(* com.fintellix.platformcore..*Bo.*(..))" />
+      <aop:advisor advice-ref="PlatformdefaultTxAdvice" pointcut-ref="PlatformvyasaServiceOperation"/>
+    </aop:config>
+	
+	
+	
+	<!-- ========================= DAO DEFINITIONS ========================= -->	
+<!-- For Platform -START -->
+	
+	<beans:bean id="daoFactory" class="com.fintellix.platformcore.platformconfig.dao.HibernateDaoFactory" scope="singleton">
+        <beans:property name="sessionFactory" ref="sessionFactory" />
+  	</beans:bean>
+	
+</beans:beans>

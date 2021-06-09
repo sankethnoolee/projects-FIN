@@ -1,0 +1,24 @@
+.bizscoreBackgrnd{
+	width: 100% !important;
+    height: 100% !important;
+    background: url(../../../images/login-bg.jpg) no-repeat bottom center !important;
+	margin: 0 auto 0px !important;
+	min-height: 650px;
+}
+
+
+.orgLogo{
+		background:url('../../../images/login-logo.png') no-repeat center 60px;
+}
+
+.login-errormsg-box{
+	background: none;
+    border: 0px dashed #ffa8a8;
+    width: 400px;
+    height: auto;
+    margin: 0px auto;
+    padding: 5px 20px;
+    text-align: center;
+    color: #5E5E5E;
+    font-size: 11px;
+}

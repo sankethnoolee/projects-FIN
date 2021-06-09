@@ -1,0 +1,19 @@
+SET CLASSPATH=.;D:\antlr\antlr-4.7-complete.jar;%CLASSPATH%
+set path=C:\Program Files\Java\jdk1.8.0_131\bin;
+antlr4 EditCheckV4V2.g4 -> to generate java files or --- java -jar antlr-4.2-complete-1.0.jar EditCheckV4V2.g4
+javac EditCheck*.java ->  compile java files
+grun EditCheckV4V2 r -tree -> press enter
+Write formula -> Enter -> ctrl+z -> Enter
+
+
+//for javascript 
+-Dlanguage=JavaScript
+
+java -jar antlr-4.7-complete.jar -Dlanguage=JavaScript ValidationGrammar.g4
+javac -cp antlr-4.7-complete.jar Validation*.java
+java -jar antlr-4.7-complete.jar ValidationGrammar.g4
+grun ValidationGrammar r -tree -> press enter
+Write formula -> Enter -> ctrl+z -> Enter
+
+
+SET CLASSPATH=.;D:\ANTLR java\antlr-4.7-complete.jar;%CLASSPATH%
