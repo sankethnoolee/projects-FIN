@@ -1,0 +1,11 @@
+/opt/Fintellix/PLT40/Application/tomcat/bin
+
+./shutdown.sh
+
+ps -aef |grep catlina
+kill -9 (idrec)
+ps -aef |grep catalina
+
+./startup.sh
+
+tail -f ../logs/catalina.out

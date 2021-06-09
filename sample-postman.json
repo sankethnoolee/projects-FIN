@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "3840c97a-e8da-4ba1-9a12-d291ed85d668",
+		"name": "Bizscore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/bizscore/oauth/token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Welcome1",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client2",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "client2",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/oauth/token ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"oauth",
+						"token "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/bizscore/gettoken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer: c1a553a3-2515-428c-b088-6f8ca93926ec",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bizscore/gettoken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bizscore",
+						"gettoken"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

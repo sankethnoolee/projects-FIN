@@ -1,0 +1,32 @@
+<html>
+
+	<head>
+		
+		<meta charset="utf-8">
+		<title>Home</title>
+		<script src="../js/home.js" defer></script>
+		<script src="../js/contact.js" defer></script>
+		
+		<h1>
+			Sample custom component
+		</h1>
+	</head>
+	<body>
+		
+		<contact-list id  = "test" placeholder = 'Age' label = "Enter your age" type = "number"></contact-list>
+		<vfs-input id  = "test" placeholder = 'Age' label = "Enter your age" type = "number"></vfs-input>
+		<div id = "templateContent"></div>
+	</body>
+	<script type = "module" > 
+			import {html, render} from 'https://unpkg.com/lit-html?module';
+			const templateTest = (placeholder,label)=>html`
+				<div>${label}</div>
+				<input placeholder = '${placeholder}'></input>
+			
+			
+			`
+			
+			render(templateTest('trst','asd'),document.getElementById("templateContent"));
+	</script>
+
+</html>

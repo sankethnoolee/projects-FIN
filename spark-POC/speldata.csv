@@ -1,0 +1,11 @@
+srno,spelExpr,op
+1,1==1,
+2,1==1,
+3,1>2,
+4,2>1,
+5,2!=0,
+6,'Hello World'.concat('!'),
+7,'Nikola Tesla' == 'Nikola Tesla',
+8,'SN' == 'Nikola Tesla',
+9,5<(-5),
+10,1==(2-1)?True:False,
