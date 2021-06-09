@@ -1,0 +1,158 @@
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+	display:none;
+}
+.loader {
+  border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #00b0f0;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*loader*/
+
+.activate i{
+	color:red;
+}
+.deactivate i{
+	color:black;
+}
+.activateSlab{
+	border-color : #00B16A !important;
+}
+.deactivateSlab{
+	border-color : #F44336 !important;
+}
+.activateIcon{
+	color:#00B16A;
+}
+.deactivateIcon{
+	color:#F44336;
+}
+
+
+.info-margin {
+	width: 40px;
+	margin-left : 16px;
+}
+
+.cursor-pointer{
+	cursor:pointer;
+}
+.validation-icons{
+	
+	font-size: 16px;
+}
+
+#validation-list-container{
+	    height: 400px;
+    overflow: auto;
+}
+
+#expressionDetailsByTime{
+	display:block !important;
+}
+
+.fieldset-style{
+	border: 2px solid #dadada;
+    padding: 8px;	
+	margin-bottom: 16px;
+}
+
+#updateWavierButton{
+	display:none;
+}
+
+#VNEButtons{
+	display:none;
+}
+
+.vs-description-tile{
+	height : 64px !important;
+}
+
+.icon-document{
+	font-size : 54px !important;
+}
+
+.vs-description-tile > div:first-child{
+	flex: 1 1 0% !important;
+}
+
+
+#validationListKendo .k-grid-content td {
+	padding : 0!important;
+}
+#validationListKendo .k-grid-content td:hover {
+	background : white;
+}#validationListKendo .k-grid-header {
+	display :none !important;
+}
+
+/* */
+
+.k-grid-footer, .k-grid-footer td, .k-pager-numbers .k-state-selected, .k-pager-wrap {
+	background-color: #ffffff;
+}
+#validationListKendo {
+	font-family: Arial, sans-serif;
+}
+.k-select > .k-i-arrow-60-down{
+	margin-top: 5px;
+}
+.k-pager-nav {
+	padding-top: 8px !important;
+}
+#validationListKendo .k-grid-content{
+	overflow-y : auto !important;
+	min-height: 400px;
+    max-height: 500px;
+} 
+
+#activeCountId,#inActiveCountId{
+	pointer-events: none !important;
+}
+
+#inActiveCountId{
+	background-color: #F44336;
+}
+
+.vs-border-strip-left{
+	border-width: 0px 0px 0px 4px !important;
+}
+
+#searchByTtitleIcon{
+	background-image: none !important;
+}
+
+.sectionContainerCreate{
+	padding: 8px !important;
+}
+.textbox-prop {
+	text-transform: none !important;
+}

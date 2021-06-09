@@ -1,0 +1,494 @@
+.expressionEditorDiv{
+	height:350px;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+	border: solid 1px #ececec;
+}
+#validationDescriptionTextArea{
+	width: 100%;
+    height: 90%;
+}
+.vs-accordion{
+	background-color: #e9ebe8 !important;
+}
+.validationDecExt{
+	height:80px !important;
+}
+.validationBottomBorder{
+	border-bottom: solid 1px #EEEEEE;
+}
+#validationDescExpressionEditor{
+	height:384px;
+	padding: 8px 16px;
+}
+.mandatoryFied{
+	color:red;
+}
+#lableToEnableComment1,#lableToEnableComment2{
+	font-size:12px;
+}
+#progressBar{
+	white-space: nowrap;
+	height:44px;
+	padding-top: 8px;
+}
+#progressBar li{
+	width: 10px;
+	height: 10px;
+	text-align: center;
+	line-height: 32px;
+	border-radius: 12px;
+	background: #D3D3D3;
+	margin: 0 72px;
+	display: inline-block;
+	color: black;
+	position: relative;
+	box-shadow: 0px 0px 0px 3px #D3D3D3;
+	cursor: pointer;
+}
+#progressBar li::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -144px;
+    width: 143px;
+    height: 8px;
+    background: #D3D3D3;
+    z-index: 0;
+	border-radius: 8px;
+}
+#progressBar li:first-child::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: -144px;
+    width: 143px;
+    height: 8px;
+    background: #D3D3D3;
+    z-index: 0;
+	border-radius: 8px;
+}
+.nameProgress {
+    line-height: 64px;
+    float: left;
+    margin: 0 -110px;
+    position: absolute;
+    text-align: center;
+	cursor: pointer;
+ }
+.nameProgressAddClass {
+    border: 1px solid;
+    top: 32px;
+    width: 82px;
+    background: gray;
+    color: white;
+    height: 20px;
+    margin-left: -118px;
+	line-height: 20px;
+}
+.nameProgressAddClass:after {
+    content: " ";
+    position: absolute;
+    right: 38px;
+    top: -3px;
+    border-top: none;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid gray;
+}
+.tabScrollValidationClass {
+	display:none;
+    /* width: 40px;
+    cursor: pointer;
+    height: 100%;
+	font-size: 24px;
+	padding-left: 8px;
+    padding-top: 0px;
+	float: left;	
+*/} 
+.innerTabClassValidation{
+	padding-top: 15px;
+    padding-left: 15px;
+    color: white;
+}
+#leftScroll {  
+	width:40px;
+	height:33px;
+	background:#FFFFFF; 
+	position:absolute;
+	/*left:1012px;*/
+	border: 1px solid #e5e5e5;
+}
+#rightScroll {    
+	width:40px;
+	height:33px;
+	background:#FFFFFF; 
+	position:absolute;
+	/*right:258px;*/
+	border: 1px solid #e5e5e5;
+}
+.cotainerProgressBar {
+	position:relative;
+	left:0;
+	width:900px;
+}
+#versionTimeline{
+	overflow-x: scroll;
+	overflow-y: hidden;
+	margin-left: 32px;
+	justify-content: end;
+	display:flex;
+	width:88%; 
+	float:left;
+}
+#versionTimeline::-webkit-scrollbar{
+	display:none;
+}
+.clickedDateClass {
+	background: #808080 !important;
+}
+.parent-div-hide{
+	display: none;
+}
+#expression-data{
+	height: 90%;
+    overflow: auto;
+    margin:4px 0px;
+}
+.expression-scroll{
+	height: 57%;
+    overflow: auto;
+    margin:4px 0px;
+}
+#tabScrollValidation .fa-angle-left, #tabScrollValidation .fa-angle-right{
+    padding-top: 3px;
+    padding-left: 16px;
+    color: #4682b4;
+	/* right: 6%; */
+}
+#tabScrollValidation .fa-angle-left {
+	left:88%;
+	font-size: 24px;
+	padding-left: 12px;
+    padding-top: 2px;
+} 
+#tabScrollValidation .fa-angle-right {
+	left:91%;
+	font-size: 24px;
+	padding-left: 16px;
+    padding-top: 2px;
+} 
+.editValidationbtnEnableAndDisable {
+	background-color: aliceblue !important;
+    color: black  !important;
+    border: none !important;
+}
+.editGroupBtns {
+	display:none;
+}
+.parent-div-elem{
+	height: 32px;
+	background-color: #eeeeee;
+	padding:4px 8px;
+	border-bottom: solid 1px #ffffff;
+	font-weight: bold;
+}
+.contentDiv{
+	height: 32px;
+	background-color: #ffffff;
+	padding: 4px 8px;
+	border-bottom: solid 1px #ececec;
+	width:96%;
+	float:left;
+}
+.main-parent:hover .contentDiv,.main-parent:hover .vs-tooltip, .parent-div:hover .contentDiv,.parent-div:hover .vs-tooltip{
+	background-color: #eeeeee;
+}
+.child-div-elem{
+	height: 32px;
+	background-color: #ffffff;
+	padding: 4px 16px;
+	border-bottom: solid 1px #ececec;
+}
+.child-div-elem:hover{
+	background-color: #eeeeee;
+}
+.search-class
+{
+	width: 100%;
+  	height: 32px;
+  	background-color: #fafafa;
+    border: solid 1px #ececec;
+}
+#return-Search{
+	width: 89%;
+	height: 32px;
+  	background-color: #fafafa;
+    border: solid 1px #ececec;
+    border-right: none;
+}
+/*#return-Search::-webkit-search-cancel-button{
+    position:relative ! important;
+    right:20px ! important;    
+}*/
+.expression-format{
+	width: 640px;
+	height: 104px;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+	border: solid 1px #ececec;
+	background-color: #fafafa;
+	display: flex;
+}
+.example-div{
+	width: 89%;
+    height: 100%;
+    padding: 8px;
+}
+.format-str-div{
+	 margin-top: 30px ! important;
+}
+#validation-msg,#validation-multi-msg
+{
+	position: relative;
+	width: 100%;
+    height: 45px;
+    padding: 8px;
+    margin: 0 auto;
+}
+.hideShowClass {
+	display: none;
+}
+.highLightClass{
+	background-color:#eeeeee;
+}
+.validationTxtAreaClass{
+	height:77% ! important;
+}
+div #span-msg {
+    text-align: center;
+    font-size:12px;
+}
+
+div #span-btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.clearInputClass{
+	    height: 32px;
+    background-color: #fafafa;
+    border: solid 1px #ececec;
+    padding: 0px 4px 0px 8px;
+    text-align: center;
+    line-height: 28px;
+    border-left: none;
+}
+.borderClass{
+	border-right:none;
+}
+#return-Search:focus,#validationDescriptionTextArea:focus{
+        outline: none ! important;
+    }
+.expressionEditorDiv {
+   -webkit-user-select: none; /* Chrome/Safari */        
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* IE10+ */
+}
+#return-Search:focus,.search-class:focus{
+        outline: none ! important;
+        outline-width: 0 ! important;
+        box-shadow:none ! important;
+		border:solid 1px #ececec ! important;
+		border-right:none ! important;
+} 
+.icon-info{
+	float:right;
+}
+#validationNameHeading{
+	word-break: break-all;
+}
+.radiobutton-text{
+	width:80%;
+}	
+.dropDown-redBorder{
+	border-color:red !important;
+}
+/*loader*/
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+	display:none;
+}
+.loader {
+  border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #00b0f0;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*loader*/
+
+.datePickerClass::-ms-clear {
+    display: none;
+}
+.vs-tooltip{
+	width: 4%;
+    height: 100%;
+    height: 32px;
+    background-color: #ffffff;
+    padding: 4px 8px;
+    border-bottom: solid 1px #ececec;
+}
+.displayClass{
+	display:none;
+}
+.vs-gc-flex-grid .multiselect-item .input-group-addon {
+	display: none;
+}
+.vs-gc-flex-grid .vs-gc-lbl-comp .multiselect-item .input-group-btn {
+	display: table-column;
+}
+.vs-gc-flex-grid .caret {
+	display: none;
+}
+#validation-multi-msg-2{
+	height:auto !important;
+	align-items: baseline !important;
+	padding: 13px;
+    opacity: 1;
+    transition: opacity 0.6s;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-transform: capitalize;
+    background-color: rgba(253, 70, 42, 0.3); 
+    color: #282F54;
+	max-height:108px;
+	overflow-y:scroll;
+	display:none;
+	position: relative;
+    width: 95%;
+    margin: 0 auto;
+}
+#validationErrorList li{
+	display:inline;
+}
+#return-Search::-ms-clear {
+    display: none;
+}
+#suggestiondivID{
+	height:21px;
+	width:auto;
+	position: absolute;
+	border:1px solid lightgray;
+	background: whitesmoke;
+	display:none;
+	margin-top: 40px;
+	color:gray;
+}
+.hilite {color: Black;}
+#detailDivId{
+	height:auto;
+	min-width:200px;
+	max-width:400px;
+	position: absolute;
+	border:1px solid gray;
+	background: whitesmoke;
+	display:none;
+	padding:2px;
+	border-radius: 3px;
+	font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: normal;
+    margin: 0;
+    text-align: left;
+    padding: 8px;
+    z-index: 1;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 4px;
+    box-shadow: 1px 0 1px 0 rgba(142, 140, 138, 0.16);
+    border-radius: 0px;
+    background-color: #FFFFFF;
+    color: #646569;
+    border-color: #646569;
+        width: max-content;
+    overflow: hidden;
+    max-width: 500px;
+    text-overflow: ellipsis;
+    max-height: 200px;
+}
+#suggestiondivID p{
+	padding: 2px;
+    height: 100%;
+    width: 100%;
+}
+.expression-auto{
+	max-height: 250px;
+    overflow-y: auto !important;
+}
+.expression-auto.ui-menu{
+	font-family: arial, sans-serif;
+    font-size: 12px;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(236, 236, 236);
+}
+.expression-auto .ui-menu-item a:hover, .expression-auto .focusClass {
+    background-color: #eeeeee;
+    color: #000;
+    border: none;
+}
+.expression-auto .ui-state-hover, .expression-auto .ui-widget-content .ui-state-hover, 
+.expression-auto .ui-widget-header .ui-state-hover, .expression-auto .ui-state-focus, 
+.expression-auto .ui-widget-content .ui-state-focus, .expression-auto .ui-widget-header .ui-state-focus{
+	font-weight: bold ! important;
+    background-color: #eeeeee ! important;
+    color: #000 ! important;
+    border: none ! important;
+}
+.textarea-height{
+	height:76% ! important;
+}
+#validation-msg-div{
+	margin:auto 0;
+}
+.visibility-class{
+	visibility:hidden;
+}
+.expression-auto .ui-menu-item .ui-menu-item-icon {
+    background-repeat: no-repeat;
+    background-position: 2px, 0;
+    background-size: 16px;
+    padding-left: 23px;
+}
